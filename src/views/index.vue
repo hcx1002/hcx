@@ -22,7 +22,7 @@ export default defineComponent({
         }
         getBanner().then(res => {
             console.log(res)
-            carouselList.value = res.data
+            carouselList.value = res
         })
         return {
             carouselList,

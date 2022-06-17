@@ -1,5 +1,6 @@
-import api from '../../plugins/axiosInstance'
+// import api from '../../plugins/axiosInstance'
+import hcxRequest from "@/utils/axios";
 
 export function userLogin(){
-    return  api({url:'/login'})
+    return  hcxRequest({url:'/login'})
 }

@@ -1,6 +1,7 @@
-import api from '../../plugins/axiosInstance'
+// import api from '../../plugins/axiosInstance'
+import hcxRequest from "@/utils/axios";
 export function getBanner(){
-    return api({
+    return hcxRequest({
         url: '/getBanner'
     })
 }

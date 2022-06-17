@@ -17,7 +17,7 @@
 import hcx_menu from '@/components/hcx_menu/index.vue'
 import hcx_footer from '@/components/hcx_footer/index.vue'
 import { defineComponent } from "vue";
-
+// import { getData } from "@/api/test/getData";
 export default defineComponent({
     components: {
         hcx_menu,
@@ -27,6 +27,9 @@ export default defineComponent({
         const handleSelect = (res:string[])=>{
             console.log(res)
         }
+        // getData().then(res=>{
+        //     console.log(res)
+        // })
         return{
             handleSelect
         }
