@@ -1,4 +1,4 @@
-# hcx
+# vue3+typescript项目
 
 ## Project setup
 ```
