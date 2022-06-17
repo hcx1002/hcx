@@ -1,44 +1,39 @@
 <template>
-    <div>
-        <h1>222222222</h1>
-        <el-button @click="getData">请求</el-button>
-    </div>
+    <hcx_carousel :list="carouselList" :activeCarousel="activeCarousel" @changeCarTab="changeCarTab"></hcx_carousel>
+    <hcx_cards></hcx_cards>
 </template>
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import hcx_carousel from '@/components/hcx_carousel/index.vue'
+import hcx_cards from '@/components/hcx_cards/index.vue'
+import { getBanner } from "@/api/home";
 
-<script>
-import {reactive} from '@vue/reactivity'
-import API from "@/plugins/axiosInstance";
-
-export default {
-    name: "HomeView",
+export default defineComponent({
+    name: 'IndexView',
+    components: {
+        hcx_carousel,
+        hcx_cards
+    },
     setup() {
-        const testData = reactive({
-            list: []
-        });
-        const getData = function () {
-            API({
-                url:'/test',
-                method:'get'
-            }).then(res=>{
-                console.log(res)
-                testData.list = res;
-            })
-            // this.$axios({
-            //     url: '/test',
-            //     method: 'get'
-            // }).then(res => {
-            //     console.log(res)
-            //     testData.list = res;
-            // })
+        const activeCarousel = ref(0);
+        const carouselList = ref({})
+        const changeCarTab = (index: number) => {
+            activeCarousel.value = index
         }
+        getBanner().then(res => {
+            console.log(res)
+            carouselList.value = res.data
+        })
         return {
-            testData,
-            getData
+            carouselList,
+            activeCarousel,
+            changeCarTab
         }
     }
-}
-</script>
+})
 
-<style scoped>
+</script>
+<style scoped lang="scss">
+
 
 </style>

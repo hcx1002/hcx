@@ -16,4 +16,5 @@ function parseInitState(key:any) {
 }
 export default {
     countVuex: 0,
+    token:parseInitState('token')
 }
